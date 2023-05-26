@@ -91,6 +91,7 @@ function showPrevious() {
         currentCategoryIndex--;
         fetchCategoryData(currentCategoryIndex);;
     }
+    startIncrementing();
 }
 
 function showNext() {
@@ -98,6 +99,7 @@ function showNext() {
         currentCategoryIndex++;
         fetchCategoryData(currentCategoryIndex);;
     }
+    startIncrementing();
 }
 
 // Function to format the date as dd:mm:yy
