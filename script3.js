@@ -91,12 +91,28 @@ fetch('./datacombined.csv')
             else {
                 type[titles.indexOf(category)].push([date, wellID]);
             }
-        });
+        }); // <-- Added closing parenthesis here
+
+        for (let i = 0; i < titles.length - 1; i++) {
+            for (let j = 0; j < titles.length - 1 - i; j++) {
+                if (titles[j] > titles[j + 1]) {
+                    // Swap elements if they are in the wrong order
+                    var temp = titles[j];
+                    titles[j] = titles[j + 1];
+                    titles[j + 1] = temp;
+
+                    var temp = type[j];
+                    type[j] = type[j + 1];
+                    type[j + 1] = temp;
+                }
+            }
+        }
 
     })
     .catch(error => {
         console.error('Error:', error);
     });
+
 
 var currentCategoryIndex = 0;
 fetchCategoryData(currentCategoryIndex);
