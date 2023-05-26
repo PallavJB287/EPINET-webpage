@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPINET - Mumbai</title>
+    <link href="style2.css" rel="stylesheet">
+    <script src="script2.js" defer></script>
+
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="left-section">
+            <img src="ongclogo.png" alt="Logo" height="50">
+            <span class="logo-text"><b>EPINET<br></b>Mumbai</span>
+        </div>
+        <div class="right-section">
+            <ul class="nav-options">
+                <li><a href="#" style="color:white;">Task Force Members</a></li>
+                <li><a href="#" style="color:white;">Active Lease Blocks</a></li>
+                <li><a href="#" style="color:white;">Forms</a></li>
+                <li><a href="#" style="color:white;">About</a></li>
+                <li><a href="#" style="color:white;">Help</a></li>
+                <li><a href="#" style="color:white;">ID</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <h1 id="head1">Welcome to EPINET</h1>
+
+
+    <div id="main1">
+
+        <div id="left_panel">
+            <div id="buttons">
+                <button id="prevButton" onclick="showPrevious()">Previous</button>
+                <button id="nextButton" onclick="showNext()">Next</button>
+                <button id="contButton" onclick="startIncrementing()">Continue</button>
+                <button id="stopButton" onclick="stopIncrementing()">Pause</button>
+            </div>
+            <div id="output"></div>
+        </div>
+
+
+        <div id="right_panel">
+            <!-- <div id="img_main">
+                <img src="graphimg.png" height="200">
+            </div> -->
+            <div id="grid_main">
+                <div class="grid_item"><button href="#">Data Viewer</button></div>
+                <div class="grid_item"><button href="#">Location Map</button></div>
+                <div class="grid_item"><button href="#">PowerQuery</button></div>
+                <div class="grid_item"><button onclick="window.location.href = 'loader.html';">Data Loader</button>
+                </div>
+                <div class="grid_item"><button href="#">GTO</button></div>
+                <div class="grid_item"><button href="#">Utilities</button></div>
+                <div class="grid_item"><button href="#">e-Core Library</button></div>
+                <div class="grid_item"><button href="#">CEGDIS</button></div>
+                <div class="grid_item"><button href="#">MPR</button></div>
+                <div class="grid_item"><button href="#">Helpdesk</button></div>
+                <div class="grid_item"><button href="#">Spud/Rig Release Note</button></div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="bot">
+        Developed and maintained by <b>EPINET</b>
+    </footer>
+</body>
+
+</html>
