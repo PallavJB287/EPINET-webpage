@@ -3,12 +3,6 @@ function readCSVFile(csvData) {
     // Split the CSV data into rows
     const rows = csvData.split('\n');
 
-    // Remove the header row if it exists
-    const header = rows[0].split(',');
-    if (header.length === 3 && header[0] === 'category' && header[1] === 'date' && header[2] === 'wellid') {
-        rows.shift();
-    }
-
     // Parse each row and create an object with category, date, and wellid properties
     const data = rows.map(row => {
         const [category, date, wellid] = row.split(',');
@@ -49,8 +43,7 @@ function swap(data, i, j) {
 }
 
 // Example usage
-const csvData = `category,date,wellid
-Lab,2022-09-25,YZA567
+const csvData = `Lab,2022-09-25,YZA567
 Geology,2022-01-01,ABC123
 Geology,2022-02-15,DEF456
 Geology,2022-04-20,JKL012
