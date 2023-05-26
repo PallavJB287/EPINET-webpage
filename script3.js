@@ -1,20 +1,76 @@
-const geologyData = [];
-const labData = [];
-const drillingData = [];
-const reservoirData = [];
-const productionData = [];
-const seismicData = [];
-const logsData = [];
-const documentsData = [];
+// const geologyData = [];
+// const labData = [];
+// const drillingData = [];
+// const reservoirData = [];
+// const productionData = [];
+// const seismicData = [];
+// const logsData = [];
+// const documentsData = [];
 //
+
+// fetch('./datacombined.csv')
+//     .then(response => response.text())
+//     .then(csvData => {
+//         // Parse CSV data into rows
+//         const rows = csvData.split('\n');
+
+//         // Sort rows based on date (latest first)
+//         rows.sort((a, b) => {
+//             const dateA = new Date(a.split(',')[1]);
+//             const dateB = new Date(b.split(',')[1]);
+//             return dateB - dateA;
+//         });
+//         const currentDate = new Date();
+//         const past30Days = new Date();
+//         past30Days.setDate(currentDate.getDate() - 365);
+
+//         rows.forEach(row => {
+//             const [category, date, wellID] = row.split(',');
+//             const rowDate = new Date(date);
+
+//             if (rowDate >= past30Days && rowDate <= currentDate) {
+//                 if (category === 'Geology') {
+//                     geologyData.push([date, wellID]);
+//                 } else if (category === 'Lab') {
+//                     labData.push([date, wellID]);
+//                 }
+//                 else if (category === 'Drilling') {
+//                     drillingData.push([date, wellID]);
+//                 }
+//                 else if (category === 'Reservoir') {
+//                     reservoirData.push([date, wellID]);
+//                 }
+//                 else if (category === 'Production') {
+//                     productionData.push([date, wellID]);
+//                 }
+//                 else if (category === 'Seismic') {
+//                     seismicData.push([date, wellID]);
+//                 }
+//                 else if (category === 'Logs') {
+//                     logsData.push([date, wellID]);
+//                 }
+//                 else if (category === 'Documents') {
+//                     documentsData.push([date, wellID]);
+//                 }
+//             }
+//         });
+
+//     })
+//     .catch(error => {
+//         console.error('Error:', error);
+//     });
+
+// var type = [geologyData, labData, drillingData, reservoirData, productionData, seismicData, logsData, documentsData]
+// var titles = ["Geology", "Lab", "Drilling", "Reservoir", "Production", "Seismic", "Logs", "Documents"]
+
+const type = [];
+const titles = [];
 
 fetch('./datacombined.csv')
     .then(response => response.text())
     .then(csvData => {
-        // Parse CSV data into rows
         const rows = csvData.split('\n');
 
-        // Sort rows based on date (latest first)
         rows.sort((a, b) => {
             const dateA = new Date(a.split(',')[1]);
             const dateB = new Date(b.split(',')[1]);
@@ -22,36 +78,18 @@ fetch('./datacombined.csv')
         });
         const currentDate = new Date();
         const past30Days = new Date();
-        past30Days.setDate(currentDate.getDate() - 365);
+        past30Days.setDate(currentDate.getDate() - 30);
 
         rows.forEach(row => {
             const [category, date, wellID] = row.split(',');
             const rowDate = new Date(date);
-
-            if (rowDate >= past30Days && rowDate <= currentDate) {
-                if (category === 'Geology') {
-                    geologyData.push([date, wellID]);
-                } else if (category === 'Lab') {
-                    labData.push([date, wellID]);
-                }
-                else if (category === 'Drilling') {
-                    drillingData.push([date, wellID]);
-                }
-                else if (category === 'Reservoir') {
-                    reservoirData.push([date, wellID]);
-                }
-                else if (category === 'Production') {
-                    productionData.push([date, wellID]);
-                }
-                else if (category === 'Seismic') {
-                    seismicData.push([date, wellID]);
-                }
-                else if (category === 'Logs') {
-                    logsData.push([date, wellID]);
-                }
-                else if (category === 'Documents') {
-                    documentsData.push([date, wellID]);
-                }
+            if (titles.indexOf(category) == -1) {
+                titles.push(category);
+                type.push([]);
+                type[type.length - 1].push([date, wellID]);
+            }
+            else {
+                type[titles.indexOf(category)].push([date, wellID]);
             }
         });
 
@@ -60,15 +98,12 @@ fetch('./datacombined.csv')
         console.error('Error:', error);
     });
 
-var category = [geologyData, labData, drillingData, reservoirData, productionData, seismicData, logsData, documentsData]
-var titles = ["Geology", "Lab", "Drilling", "Reservoir", "Production", "Seismic", "Logs", "Documents"]
-
 var currentCategoryIndex = 0;
 fetchCategoryData(currentCategoryIndex);
 
 function fetchCategoryData(index) {
     // Get the current category data
-    var currentCategory = category[index];
+    var currentCategory = type[index];
     var name_file = titles[currentCategoryIndex];
 
     // Generate HTML content for the latest entries
@@ -104,7 +139,7 @@ function showPrevious() {
 }
 
 function showNext() {
-    if (currentCategoryIndex < category.length - 1) {
+    if (currentCategoryIndex < type.length - 1) {
         currentCategoryIndex++;
         fetchCategoryData(currentCategoryIndex);;
     }
@@ -127,7 +162,7 @@ function formatDate(dateString) {
 
 function incrementCategoryIndex() {
     currentCategoryIndex++;
-    if (currentCategoryIndex >= category.length) {
+    if (currentCategoryIndex >= type.length) {
         currentCategoryIndex = 0;
     }
 
