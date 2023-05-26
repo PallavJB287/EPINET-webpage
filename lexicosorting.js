@@ -1,12 +1,12 @@
-// Function to read a CSV file and return an array of objects representing each row
+// Function to read a CSV file and return a 2D array representing each row
 function readCSVFile(csvData) {
     // Split the CSV data into rows
     const rows = csvData.split('\n');
 
-    // Parse each row and create an object with category, date, and wellid properties
+    // Parse each row and create a subarray with category, date, and wellid values
     const data = rows.map(row => {
         const [category, date, wellid] = row.split(',');
-        return { category, date, wellid };
+        return [category, date, wellid];
     });
 
     return data;
@@ -22,11 +22,11 @@ function quickSortCategories(data, low, high) {
 }
 
 function partition(data, low, high) {
-    const pivot = data[high].category;
+    const pivot = data[high][0];
     let i = low - 1;
 
     for (let j = low; j < high; j++) {
-        if (data[j].category < pivot) {
+        if (data[j][0] < pivot) {
             i++;
             swap(data, i, j);
         }
