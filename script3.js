@@ -78,20 +78,24 @@ fetch('./datacombined.csv')
         });
         const currentDate = new Date();
         const past30Days = new Date();
-        past30Days.setDate(currentDate.getDate() - 30);
+        past30Days.setDate(currentDate.getDate() - 365);
+
 
         rows.forEach(row => {
             const [category, date, wellID] = row.split(',');
             const rowDate = new Date(date);
-            if (titles.indexOf(category) == -1) {
-                titles.push(category);
-                type.push([]);
-                type[type.length - 1].push([date, wellID]);
+            if (rowDate >= past30Days && rowDate <= currentDate) {
+                if (titles.indexOf(category) == -1) {
+                    titles.push(category);
+                    type.push([]);
+                    type[type.length - 1].push([date, wellID]);
+                }
+                else {
+                    type[titles.indexOf(category)].push([date, wellID]);
+                }
             }
-            else {
-                type[titles.indexOf(category)].push([date, wellID]);
-            }
-        }); // <-- Added closing parenthesis here
+        });
+
 
         for (let i = 0; i < titles.length - 1; i++) {
             for (let j = 0; j < titles.length - 1 - i; j++) {
