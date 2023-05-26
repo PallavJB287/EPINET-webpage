@@ -6,6 +6,7 @@ const productionData = [];
 const seismicData = [];
 const logsData = [];
 const documentsData = [];
+//
 
 fetch('./datacombined.csv')
     .then(response => response.text())
@@ -151,21 +152,6 @@ function stopIncrementing() {
 
 // Start the incrementing process initially
 startIncrementing();
-
-// Function to increment only, doesn't stop
-// // Function to increment the currentCategoryIndex value
-// function incrementCategoryIndex() {
-//     currentCategoryIndex++;
-//     if (currentCategoryIndex >= category.length) {
-//         currentCategoryIndex = 0;
-//     }
-
-//     // Call the fetchCategoryData function with the updated index
-//     fetchCategoryData(currentCategoryIndex);
-// }
-
-// // Call the incrementCategoryIndex function every 3 seconds
-// setInterval(incrementCategoryIndex, 3000);
 
 document.addEventListener("DOMContentLoaded", function () {
     var toggleButton = document.getElementById("toggleButton");
