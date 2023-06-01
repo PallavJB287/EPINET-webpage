@@ -13,7 +13,7 @@ fetch('./DV_NEW_RECORDS.csv')
         });
         const currentDate = new Date();
         const past30Days = new Date();
-        past30Days.setDate(currentDate.getDate() - 60);
+        past30Days.setDate(currentDate.getDate() - 30);
 
 
         rows.forEach(row => {
