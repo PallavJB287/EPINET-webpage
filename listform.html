@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lease form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container w-50 border border-1 rounded rounded-3 p-5">
+        <h1>Lease Form</h1>
+        <hr/>
+        <form class="mt-4">
+            <div class="mb-3">
+                <label for="id" class="form-label">ID</label>
+                <input type="number" class="form-control" id="id" placeholder="110">
+              </div>
+              <div class="mb-3">
+                <label for="lease-id" class="form-label">Lease ID</label>
+                <input type="text" class="form-control" id="lease-id" placeholder="Lease ID">
+              </div>
+              <div class="mb-3">
+                <label for="lease-id" class="form-label">BLOCK_TYPE</label>
+                <select class="form-select">
+                    <option value="1">REL</option>
+                    <option value="2">PEL_OLD</option>
+                    <option value="3">ML</option>
+                    <option value="4">NEL</option>
+                    <option value="5">PSC</option>
+                    <option value="6">PML</option>
+                    <option value="7">PEL</option>
+                    <option value="8">JVE</option>
+                    <option value="9">HELP</option>
+                    <option value="10">DSF</option>
+                  </select>
+              </div>
+              <div class="mb-3">
+                <label for="NELP_ROUND" class="form-label">NELP_ROUND</label>
+                <input type="text" class="form-control" name="NELP_ROUND" id="NELP_ROUND" placeholder="NELP_ROUND">
+              </div>
+              <div class="mb-3">
+                <label for="NELP_ROUND" class="form-label">MINISTRY_REFERENCE_NO</label>
+                <input type="text" class="form-control" name="MINISTRY_REFERENCE_NO" id="MINISTRY_REFERENCE_NO" placeholder="MINISTRY_REFERENCE_NO">
+              </div>  <div class="mb-3">
+                <label for="NELP_ROUND" class="form-label">LEASE_NUMBER</label>
+                <input type="text" class="form-control" name="LEASE_NUMBER" id="LEASE_NUMBER" placeholder="LEASE_NUMBER">
+              </div>
+              <div class="mb-3">
+                <label for="NELP_ROUND" class="form-label">MINISTRY_REFERENCE_NO</label>
+                <input type="text" class="form-control" name="MINISTRY_REFERENCE_NO" id="MINISTRY_REFERENCE_NO" placeholder="MINISTRY_REFERENCE_NO">
+              </div>
+
+              <div class="mb-3">
+                <label for="EFFECTIVE_DATE" class="form-label">EFFECTIVE_DATE</label>
+                <input type="date" class="form-control" name="EFFECTIVE_DATE" id="EFFECTIVE_DATE" placeholder="Lease ID">
+              </div>
+              <div class="mb-3">
+                <label for="EXT_YEAR" class="form-label">EXT_YEAR</label>
+                <input type="number" class="form-control" name="EXT_YEAR" id="EXT_YEAR" placeholder="2015" min="1990" step="1">
+              </div>
+              <div class="mb-3">
+                <label for="Remark" class="form-label">Remark</label>
+                <textarea class="form-control" id="Remark" rows="3"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="AREA_ID" class="form-label">AREA_ID</label>
+                <input type="number" class="form-control" id="id" placeholder="110">
+              </div>
+
+
+              <button class="btn btn-primary ">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>
