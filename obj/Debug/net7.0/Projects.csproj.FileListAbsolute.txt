@@ -1,0 +1,5 @@
+D:\visual studio code\My Codes\Projects\obj\Debug\net7.0\Projects.csproj.AssemblyReference.cache
+D:\visual studio code\My Codes\Projects\obj\Debug\net7.0\Projects.GeneratedMSBuildEditorConfig.editorconfig
+D:\visual studio code\My Codes\Projects\obj\Debug\net7.0\Projects.AssemblyInfoInputs.cache
+D:\visual studio code\My Codes\Projects\obj\Debug\net7.0\Projects.AssemblyInfo.cs
+D:\visual studio code\My Codes\Projects\obj\Debug\net7.0\Projects.csproj.CoreCompileInputs.cache
