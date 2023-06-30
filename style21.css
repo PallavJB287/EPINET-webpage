@@ -69,7 +69,7 @@ flex-direction: column; */
 }
 
 #left_panel {
-    width: 25%;
+    width: auto;
     height: 350px;
     background-color: bisque;
     border: 2px solid black;
